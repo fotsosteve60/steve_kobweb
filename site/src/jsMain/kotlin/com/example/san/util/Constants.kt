@@ -12,10 +12,24 @@ object Constants {
 }
 
 object Res {
+    object Icon {
+        const val web = "web_icon.svg"
+        const val seo = "seo_icon.svg"
+        const val design = "design_icon.svg"
+        const val business = "business_icon.svg"
+        const val apple = "apple_icon.svg"
+        const val android = "android_icon.svg"
+        const val link = "link_icon.svg"
+    }
     object Image {
         const val background = "background.svg"
         const val logo = "logo.svg"
         const val main = "main_image.png"
         const val about = "about_image.png"
+        const val portfolio1 = "portfolio1.png"
+        const val portfolio2 = "portfolio2.png"
+        const val portfolio3 = "portfolio3.png"
+        const val portfolio4 = "portfolio4.png"
+        const val portfolio5 = "portfolio5.png"
     }
 }
