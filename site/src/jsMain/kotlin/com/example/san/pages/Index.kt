@@ -3,9 +3,11 @@ package com.example.san.pages
 import androidx.compose.runtime.*
 import com.example.san.sections.AboutSection
 import com.example.san.sections.AchievementSection
+import com.example.san.sections.ExperienceSection
 import com.example.san.sections.MainSection
 import com.example.san.sections.PortfolioSection
 import com.example.san.sections.ServiceSection
+import com.example.san.sections.TestimonialSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -31,6 +33,8 @@ fun HomePage() {
         ServiceSection()
         PortfolioSection()
         AchievementSection()
+        TestimonialSection()
+        ExperienceSection()
     }
 }
 

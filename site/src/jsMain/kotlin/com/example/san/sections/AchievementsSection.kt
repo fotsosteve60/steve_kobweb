@@ -56,7 +56,7 @@ fun AchievementsContent(breakpoint: Breakpoint) {
         distanceFromTop = 700.0,
         onViewportEntered = {
             viewportEntered = true
-            Achievement.values().forEach { achievement ->
+            Achievement.entries.forEach { achievement ->
                 scope.launch {
                     animateNumbers(
                         number = achievement.number,
@@ -79,7 +79,7 @@ fun AchievementsContent(breakpoint: Breakpoint) {
                     },
                     bottom = if (breakpoint > Breakpoint.MD) 0.px else 40.px
                 ),
-                animatedNumber = if (viewportEntered) animatedNumbers[achievement.ordinal] else 0,
+                animatedNumber =  if (viewportEntered) animatedNumbers[achievement.ordinal] else 0,
                 achievement = achievement
             )
         }
