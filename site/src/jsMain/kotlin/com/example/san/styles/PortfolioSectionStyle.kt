@@ -1,6 +1,5 @@
 package com.example.san.styles
 
-import com.example.san.models.Portfolio
 import com.example.san.models.Theme
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.css.Visibility

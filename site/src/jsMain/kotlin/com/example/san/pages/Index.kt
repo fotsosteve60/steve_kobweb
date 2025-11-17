@@ -3,6 +3,7 @@ package com.example.san.pages
 import androidx.compose.runtime.*
 import com.example.san.sections.AboutSection
 import com.example.san.sections.AchievementSection
+import com.example.san.sections.ContactSection
 import com.example.san.sections.ExperienceSection
 import com.example.san.sections.MainSection
 import com.example.san.sections.PortfolioSection
@@ -35,6 +36,7 @@ fun HomePage() {
         AchievementSection()
         TestimonialSection()
         ExperienceSection()
+        ContactSection()
     }
 }
 

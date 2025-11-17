@@ -22,8 +22,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.toAttrs
-import com.varabyte.kobweb.silk.style.CssStyle
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.web.css.CSSSizeValue
 import org.jetbrains.compose.web.css.CSSUnit
 import org.jetbrains.compose.web.css.ms
@@ -35,21 +33,21 @@ import org.w3c.dom.Text
 
 @Composable
 fun SkillBar(
-    title: String,
+    name: String,
     index: Int,
+    animatedPercentage: Int,
     progressBarHeight : CSSSizeValue<CSSUnit.px> = 5.px,
     percentage: CSSSizeValue<CSSUnit.percent> = 50.percent,
-    animatedPercentage: Int
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .margin(bottom = 10.px)
+            .margin(topBottom = 10.px)
             .maxWidth(500.px)
             .padding(topBottom = 5.px)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().margin(bottom = 5.px),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             P(
@@ -61,7 +59,7 @@ fun SkillBar(
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
-                Text(title)
+                Text(name)
             }
             P(
                 attrs = Modifier
@@ -75,15 +73,14 @@ fun SkillBar(
                 Text("$animatedPercentage")
             }
         }
-        Box(modifier = Modifier.fillMaxWidth()) {
-            Box(
-                modifier = Modifier
+        Box(
+            modifier = Modifier
                     .fillMaxWidth()
                     .height(progressBarHeight)
-                    .backgroundColor(Theme.LightGray.rgb)
+                    .backgroundColor(Theme.LighterGray.rgb)
             )
-            Box(
-                modifier = Modifier
+        Box(
+            modifier = Modifier
                     .fillMaxWidth(percentage)
                     .height(progressBarHeight)
                     .backgroundColor(Theme.Primary.rgb)
@@ -95,6 +92,5 @@ fun SkillBar(
                         )
                     )
             )
-        }
     }
 }

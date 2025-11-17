@@ -10,6 +10,7 @@ import com.example.san.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextDecorationLine
+import com.varabyte.kobweb.compose.css.Width
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -31,6 +32,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.objectFit
 import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
+import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
@@ -53,7 +55,7 @@ fun PortfolioCard(
         path = link,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ) {
-        Column(modifier = modifier.id("columnParent")) {
+        Column(modifier = modifier.id("columnParent").width(Width.MaxContent)) {
             Box(
                 modifier = Modifier
                     .id("boxParent")
@@ -92,7 +94,6 @@ fun PortfolioCard(
                     .fontFamily(FONT_FAMILY)
                     .fontSize(18.px)
                     .fontWeight(FontWeight.Bold)
-                    .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
                 Text(portfolio.title)
@@ -109,7 +110,7 @@ fun PortfolioCard(
                     .opacity(50.percent)
                     .toAttrs()
             ) {
-                Text(portfolio.title)
+                Text(portfolio.description)
             }
         }
     }
