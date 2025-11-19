@@ -23,19 +23,17 @@ val InputStyle = CssStyle {
             .transition(Transition.of(property = "border", duration = 200.ms))
     }
     focus {
-        Modifier
-            .border(
-                width = 2.px,
-                style = LineStyle.Solid,
-                color = Theme.Primary.rgb
-            )
+        Modifier.border(
+            width = 2.px,
+            style = LineStyle.Solid,
+            color = Theme.Primary.rgb
+        )
     }
     hover {
-        Modifier
-            .border(
-                width = 2.px,
-                style = LineStyle.Solid,
-                color = Theme.Primary.rgb
-            )
+        Modifier.border(
+            width = 2.px,
+            style = LineStyle.Solid,
+            color = Theme.Primary.rgb
+        )
     }
 }

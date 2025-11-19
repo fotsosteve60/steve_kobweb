@@ -33,7 +33,7 @@ import org.w3c.dom.Text
 
 @Composable
 fun SkillBar(
-    name: String,
+    title: String,
     index: Int,
     animatedPercentage: Int,
     progressBarHeight : CSSSizeValue<CSSUnit.px> = 5.px,
@@ -42,12 +42,14 @@ fun SkillBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .margin(topBottom = 10.px)
+            .margin(bottom = 10.px)
             .maxWidth(500.px)
             .padding(topBottom = 5.px)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .margin(bottom = 5.px),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             P(
@@ -59,7 +61,7 @@ fun SkillBar(
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
-                Text(name)
+                Text(title)
             }
             P(
                 attrs = Modifier
@@ -70,17 +72,18 @@ fun SkillBar(
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
-                Text("$animatedPercentage")
+                Text("$animatedPercentage%")
             }
         }
-        Box(
-            modifier = Modifier
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Box(
+                modifier = Modifier
                     .fillMaxWidth()
                     .height(progressBarHeight)
-                    .backgroundColor(Theme.LighterGray.rgb)
+                    .backgroundColor(Theme.LightGray.rgb)
             )
-        Box(
-            modifier = Modifier
+            Box(
+                modifier = Modifier
                     .fillMaxWidth(percentage)
                     .height(progressBarHeight)
                     .backgroundColor(Theme.Primary.rgb)
@@ -92,5 +95,6 @@ fun SkillBar(
                         )
                     )
             )
+        }
     }
 }

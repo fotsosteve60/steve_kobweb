@@ -9,7 +9,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.selectors.anyLink
 import com.varabyte.kobweb.silk.style.selectors.hover
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.deg
@@ -21,17 +20,18 @@ import org.jetbrains.compose.web.css.px
 val NavigationItemStyle = CssStyle {
     base {
         Modifier
+            .styleModifier {
+                property("--bs-link-color", Theme.Secondary.rgb)
+            }
             .color(Theme.Secondary.rgb)
             .transition(Transition.of(property = "color", duration = 200.ms))
     }
 
-    anyLink {
-        Modifier
-            .color(Theme.Secondary.rgb)
-    }
-
     hover {
         Modifier
+            .styleModifier {
+                property("--bs-link-color", Theme.Secondary.rgb)
+            }
             .color(Theme.Primary.rgb)
     }
 }
@@ -52,7 +52,7 @@ val SocialLinkStyle = CssStyle {
     base {
         Modifier
             .color(Theme.Gray.rgb)
-            .transition(Transition.of(property = "transform", duration = 200.ms))
+            .transition(Transition.of(property = "color", duration = 200.ms))
     }
     hover {
         Modifier.color(Theme.Primary.rgb)

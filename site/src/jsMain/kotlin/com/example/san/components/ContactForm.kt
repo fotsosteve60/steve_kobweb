@@ -13,6 +13,7 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.border
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
+import com.varabyte.kobweb.compose.ui.modifiers.boxShadow
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.cursor
@@ -36,10 +37,15 @@ import org.jetbrains.compose.web.dom.TextArea
 @Composable
 fun ContactForm(breakpoint: Breakpoint) {
     Form(
-        action = ""
+        action = "https://formspree.io/f/mjklyzbq",
+        attrs = Modifier
+            .attrsModifier {
+                attr("method", "POST")
+        }
+            .toAttrs()
     ) {
         Label(
-            attrs = InputStyle.toModifier()
+            attrs = Modifier
                 .classNames("form-label")
                 .toAttrs(),
             forId = "inputName"
@@ -48,7 +54,7 @@ fun ContactForm(breakpoint: Breakpoint) {
         }
         Input(
             type = InputType.Text,
-            attrs = Modifier
+            attrs = InputStyle.toModifier()
                 .id("inputName")
                 .classNames("form-control")
                 .margin(bottom = 10.px)
@@ -57,14 +63,16 @@ fun ContactForm(breakpoint: Breakpoint) {
                     else 250.px
                 )
                 .backgroundColor(Theme.LighterGray.rgb)
+                .boxShadow(0.px, 0.px, 0.px, 0.px, null)
                 .attrsModifier {
                     attr("placeholder", "Full Name")
+                    attr("name", "name")
                     attr("required", "true")
                 }
                 .toAttrs()
         )
         Label(
-            attrs = InputStyle.toModifier()
+            attrs = Modifier
                 .classNames("form-label")
                 .toAttrs(),
             forId = "inputEmail"
@@ -73,7 +81,7 @@ fun ContactForm(breakpoint: Breakpoint) {
         }
         Input(
             type = InputType.Email,
-            attrs = Modifier
+            attrs = InputStyle.toModifier()
                 .id("inputEmail")
                 .classNames("form-control")
                 .margin(bottom = 10.px)
@@ -82,8 +90,10 @@ fun ContactForm(breakpoint: Breakpoint) {
                     else 250.px
                 )
                 .backgroundColor(Theme.LighterGray.rgb)
+                .boxShadow(0.px, 0.px, 0.px, 0.px, null)
                 .attrsModifier {
                     attr("placeholder", "Email Address")
+                    attr("name", "email")
                     attr("required", "true")
                 }
                 .toAttrs()
@@ -92,7 +102,7 @@ fun ContactForm(breakpoint: Breakpoint) {
             attrs = Modifier
                 .classNames("form-label")
                 .toAttrs(),
-//          forId = "inputMessage"
+            forId = "inputMessage"
         ) {
             Text("Message")
         }
@@ -107,8 +117,10 @@ fun ContactForm(breakpoint: Breakpoint) {
                     else 250.px
                 )
                 .backgroundColor(Theme.LighterGray.rgb)
+                .boxShadow(0.px, 0.px, 0.px, 0.px, null)
                 .attrsModifier {
                     attr("placeholder", "Your Message")
+                    attr("name", "message")
                     attr("required", "true")
                 }
                 .toAttrs()

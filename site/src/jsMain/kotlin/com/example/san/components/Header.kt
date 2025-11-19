@@ -22,6 +22,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
+import com.varabyte.kobweb.framework.annotations.DelicateApi
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaBars
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
@@ -32,6 +33,7 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+@OptIn(DelicateApi::class)
 @Composable
 fun Header() {
     val breakpoint = rememberBreakpoint()
@@ -76,7 +78,7 @@ fun RightSide() {
             .padding(all = 20.px),
         horizontalArrangement = Arrangement.End
     ) {
-        Section.values().take(6).forEach { section ->
+        Section.entries.toTypedArray().take(6).forEach { section ->
             Link(
                 modifier = NavigationItemStyle.toModifier()
                     .padding(right = 30.px)

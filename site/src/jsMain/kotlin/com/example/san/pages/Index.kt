@@ -1,10 +1,12 @@
 package com.example.san.pages
 
 import androidx.compose.runtime.*
+import com.example.san.components.BackToTopButton
 import com.example.san.sections.AboutSection
 import com.example.san.sections.AchievementSection
 import com.example.san.sections.ContactSection
 import com.example.san.sections.ExperienceSection
+import com.example.san.sections.FooterSection
 import com.example.san.sections.MainSection
 import com.example.san.sections.PortfolioSection
 import com.example.san.sections.ServiceSection
@@ -24,19 +26,23 @@ import com.varabyte.kobweb.worker.rememberWorker
 @Page
 @Composable
 fun HomePage() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        MainSection()
-        AboutSection()
-        ServiceSection()
-        PortfolioSection()
-        AchievementSection()
-        TestimonialSection()
-        ExperienceSection()
-        ContactSection()
-    }
+   Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            MainSection()
+            AboutSection()
+            ServiceSection()
+            PortfolioSection()
+            AchievementSection()
+            TestimonialSection()
+            ExperienceSection()
+            ContactSection()
+            FooterSection()
+        }
+       BackToTopButton()
+   }
 }
 

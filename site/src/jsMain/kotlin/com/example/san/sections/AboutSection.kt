@@ -59,7 +59,8 @@ fun AboutContent() {
                 if (breakpoint >= Breakpoint.MD) 100.percent
                 else 90.percent
             )
-            .maxWidth(1200.px)
+            .maxWidth(1200.px),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SimpleGrid(
             modifier = Modifier.fillMaxWidth(
@@ -135,7 +136,7 @@ fun AboutMe() {
         }
         Skill.entries.forEach { skill ->
             SkillBar(
-                name = skill.title,
+                title = skill.title,
                 index = skill.ordinal,
                 percentage = if (viewportEntered) skill.percentage else 0.percent,
                 animatedPercentage = if (viewportEntered) animatedPercentage[skill.ordinal] else 0
