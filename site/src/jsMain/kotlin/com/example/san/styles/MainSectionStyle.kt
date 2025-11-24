@@ -26,11 +26,10 @@ val NavigationItemStyle = CssStyle {
             .color(Theme.Secondary.rgb)
             .transition(Transition.of(property = "color", duration = 200.ms))
     }
-
     hover {
         Modifier
             .styleModifier {
-                property("--bs-link-color", Theme.Secondary.rgb)
+                property("--bs-link-color", Theme.Primary.rgb)
             }
             .color(Theme.Primary.rgb)
     }

@@ -40,7 +40,7 @@ import org.jetbrains.compose.web.css.px
 fun PortfolioSection() {
     Box(
         modifier = Modifier
-            .id(Section.Service.id)
+            .id(Section.Portfolio.id)
             .maxWidth(SECTION_WIDTH.px)
             .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center

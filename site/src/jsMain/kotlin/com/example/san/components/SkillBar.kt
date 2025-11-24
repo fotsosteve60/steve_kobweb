@@ -29,7 +29,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.times
 import org.jetbrains.compose.web.dom.P
-import org.w3c.dom.Text
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun SkillBar(

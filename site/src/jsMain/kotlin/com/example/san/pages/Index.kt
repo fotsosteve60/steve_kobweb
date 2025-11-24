@@ -2,6 +2,7 @@ package com.example.san.pages
 
 import androidx.compose.runtime.*
 import com.example.san.components.BackToTopButton
+import com.example.san.components.OverflowMenu
 import com.example.san.sections.AboutSection
 import com.example.san.sections.AchievementSection
 import com.example.san.sections.ContactSection
@@ -22,13 +23,14 @@ import com.varabyte.kobweb.core.Page
 @Page
 @Composable
 fun HomePage() {
+    var menuOpened by remember { mutableStateOf(false) }
    Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            MainSection()
+            MainSection(onMenuClicked = { menuOpened = true })
             AboutSection()
             ServiceSection()
             PortfolioSection()
@@ -39,6 +41,9 @@ fun HomePage() {
             FooterSection()
         }
        BackToTopButton()
+       if (menuOpened) {
+           OverflowMenu(onMenuClosed = { menuOpened = false })
+       }
    }
 }
 

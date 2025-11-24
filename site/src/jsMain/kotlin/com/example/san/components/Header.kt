@@ -20,6 +20,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.onClick
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
 import com.varabyte.kobweb.framework.annotations.DelicateApi
@@ -35,7 +36,7 @@ import org.jetbrains.compose.web.css.px
 
 @OptIn(DelicateApi::class)
 @Composable
-fun Header() {
+fun Header(onMenuClicked: () -> Unit) {
     val breakpoint = rememberBreakpoint()
     Row(
         modifier = Modifier
@@ -44,7 +45,10 @@ fun Header() {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        LeftSide(breakpoint = breakpoint)
+        LeftSide(
+            breakpoint = breakpoint,
+            onMenuClicked = onMenuClicked
+        )
         if (breakpoint > Breakpoint.MD) {
             RightSide()
         }
@@ -52,11 +56,18 @@ fun Header() {
 }
 
 @Composable
-fun LeftSide(breakpoint: Breakpoint) {
+fun LeftSide(
+    breakpoint: Breakpoint,
+    onMenuClicked: () -> Unit
+) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         if (breakpoint <= Breakpoint.MD) {
             FaBars(
-                modifier = Modifier.margin(right = 15.px),
+                modifier = Modifier
+                    .margin(right = 15.px)
+                    .onClick {
+                        onMenuClicked()
+                    },
                 size = IconSize.XL
             )
         }
